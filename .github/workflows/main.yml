@@ -34,17 +34,17 @@ jobs:
       uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.11
-    - name: prepare artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: Package
-        path: staging 
     - name: Build with Maven
       run: |
         export MAVEN_OPTS="-Xmx4g"
         set MAVEN_OPTS="-Xmx4g"
         mvn -f portfolio-app/pom.xml clean verify
         mkdir staging && cp target/*.jar staging
+    - name: prepare artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Package
+        path: staging         
       
 
   build-analyze:
