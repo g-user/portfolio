@@ -39,6 +39,8 @@ jobs:
         mvn verify \
         --batch-mode \
         --file portfolio-app/pom.xml
+        set MAVEN_OPTS="-Xmx4g"
+        mvn -f portfolio-app/pom.xml clean verify
 
   build-analyze:
     name: Maven Build + Sonar Analysis
