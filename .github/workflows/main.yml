@@ -41,6 +41,11 @@ jobs:
         --file portfolio-app/pom.xml
         set MAVEN_OPTS="-Xmx4g"
         mvn -f portfolio-app/pom.xml clean verify
+      run: mkdir staging && cp target/*.jar staging
+      uses: actions/upload-artifact@v4
+      with:
+        name: Package
+        path: staging  
 
   build-analyze:
     name: Maven Build + Sonar Analysis
