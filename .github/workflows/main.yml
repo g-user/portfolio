@@ -39,7 +39,7 @@ jobs:
         export MAVEN_OPTS="-Xmx4g"
         set MAVEN_OPTS="-Xmx4g"
         mvn -f portfolio-app/pom.xml clean verify
-        cp target/*.jar staging
+        cp /home/runner/work/portfolio/portfolio/portfolio-product/target/*.zip staging
     - name: prepare artifacts
       uses: actions/upload-artifact@v4
       with:
